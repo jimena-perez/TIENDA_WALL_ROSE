@@ -1,3 +1,5 @@
+package TIENDA_WALL_ROSE;
+
 public class Cliente {
     private String id;
     private String nombre;
