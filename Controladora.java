@@ -1,16 +1,26 @@
 import java.util.ArrayList;
 
 public class Controladora {
+
+    private static Controladora instancia;
+
     private ArrayList<Cliente> clientes;
     private ArrayList<Producto> productos;
     private ArrayList<OrdenCompra> ordenes;
     private int contadorOrdenes;
 
-    public Controladora() {
+    private Controladora() {
         clientes = new ArrayList<>();
         productos = new ArrayList<>();
         ordenes = new ArrayList<>();
         contadorOrdenes = 1;
+    }
+
+    public static Controladora getInstancia() {
+        if (instancia == null) {
+            instancia = new Controladora();
+        }
+        return instancia;
     }
 
     public boolean agregarCliente(String id, String nombre, String email) {
@@ -32,7 +42,7 @@ public class Controladora {
 
     public boolean agregarProducto(String codigo, String nombre, double precio, int existencias) {
         if (buscarProducto(codigo) == null) {
-            productos.add(new Producto(codigo, nombre, precio, existencias));
+            productos.add(new Producto(codigo, nombre, precio, existencias);
             return true;
         }
         return false;
